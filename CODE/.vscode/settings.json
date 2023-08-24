@@ -1,0 +1,10 @@
+{
+  "cSpell.words": [
+    "oled",
+    "GPIO",
+    "Adafruit",
+    "BMSEEPROM",
+    "SSID"
+  ],
+  "cmake.configureOnOpen": false
+}

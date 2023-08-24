@@ -14,8 +14,8 @@
 #define FACTORY_MODE // Comment this out to disable factory mode, which unless you removed the calls in main.cpp, it simply runs that when setup and loop are called.
 
 // OTA bits
-#define OTA_WIFI_SSID "BadgePirates"
+#define OTA_WIFI_SSID "CCWifi"
 #define OTA_WIFI_PASSWORD "APirateIsFr33"
-#define OTA_SERVER_URL "http://discord.gr/"
+#define OTA_SERVER_URL "https://code.bplabs.tech/Project-NeoRogue/"
 #define OTA_MANIFEST_NAME "version"
 #define OTA_BINARY_NAME "firmware.bin" // Don't make this firmware-version-X.bin, this shouldn't need to be changed.

@@ -347,7 +347,7 @@
   (symbol (lib_id "BadgePirates:MAX17048") (at 129.54 62.23 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 2b77c5b3-670a-4d84-b070-b31bc39dfd9b)
-    (property "Reference" "U?" (at 129.54 58.42 0)
+    (property "Reference" "U5" (at 129.54 58.42 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "MAX17048" (at 133.35 83.82 0) (do_not_autoplace)
@@ -377,7 +377,7 @@
     (instances
       (project "ProjectNeoRogue"
         (path "/76a22395-5d2d-4f66-8191-432f65fdc4ac/51296121-626c-4d49-bd20-c8ddf904f2c5"
-          (reference "U?") (unit 1)
+          (reference "U5") (unit 1)
         )
       )
     )

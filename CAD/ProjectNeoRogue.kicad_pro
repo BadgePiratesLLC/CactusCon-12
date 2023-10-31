@@ -558,8 +558,12 @@
       "RotaryEncoders"
     ],
     [
-      "51296121-626c-4d49-bd20-c8ddf904f2c5",
+      "50cd2632-424e-4caa-986e-e3deda989559",
       "Max17048"
+    ],
+    [
+      "9c384370-1ecc-475e-8475-82fb9bf02d4c",
+      "Power"
     ]
   ],
   "text_variables": {}

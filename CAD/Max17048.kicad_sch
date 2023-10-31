@@ -376,7 +376,7 @@
     (pin "9" (uuid 8d819f37-365e-4733-a67d-e9cd8d5117b5))
     (instances
       (project "ProjectNeoRogue"
-        (path "/76a22395-5d2d-4f66-8191-432f65fdc4ac/51296121-626c-4d49-bd20-c8ddf904f2c5"
+        (path "/76a22395-5d2d-4f66-8191-432f65fdc4ac/9c384370-1ecc-475e-8475-82fb9bf02d4c/50cd2632-424e-4caa-986e-e3deda989559"
           (reference "U5") (unit 1)
         )
       )
@@ -408,7 +408,7 @@
         (path "/76a22395-5d2d-4f66-8191-432f65fdc4ac"
           (reference "R13") (unit 1)
         )
-        (path "/76a22395-5d2d-4f66-8191-432f65fdc4ac/51296121-626c-4d49-bd20-c8ddf904f2c5"
+        (path "/76a22395-5d2d-4f66-8191-432f65fdc4ac/9c384370-1ecc-475e-8475-82fb9bf02d4c/50cd2632-424e-4caa-986e-e3deda989559"
           (reference "R20") (unit 1)
         )
       )
@@ -440,7 +440,7 @@
         (path "/76a22395-5d2d-4f66-8191-432f65fdc4ac"
           (reference "C3") (unit 1)
         )
-        (path "/76a22395-5d2d-4f66-8191-432f65fdc4ac/51296121-626c-4d49-bd20-c8ddf904f2c5"
+        (path "/76a22395-5d2d-4f66-8191-432f65fdc4ac/9c384370-1ecc-475e-8475-82fb9bf02d4c/50cd2632-424e-4caa-986e-e3deda989559"
           (reference "C10") (unit 1)
         )
       )
@@ -465,8 +465,8 @@
     (pin "1" (uuid eac16406-a846-491c-92ad-7068f272d632))
     (instances
       (project "ProjectNeoRogue"
-        (path "/76a22395-5d2d-4f66-8191-432f65fdc4ac/51296121-626c-4d49-bd20-c8ddf904f2c5"
-          (reference "#PWR061") (unit 1)
+        (path "/76a22395-5d2d-4f66-8191-432f65fdc4ac/9c384370-1ecc-475e-8475-82fb9bf02d4c/50cd2632-424e-4caa-986e-e3deda989559"
+          (reference "#PWR024") (unit 1)
         )
       )
     )

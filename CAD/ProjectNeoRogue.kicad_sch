@@ -5,14 +5,14 @@
   (paper "USLetter")
 
   (title_block
-    (title "OzSec Badge")
-    (date "2023-08-11")
-    (rev "1.3")
+    (title "Project_NeoRogue")
+    (date "2023-10-30")
+    (rev "v1")
     (company "BadgePirates")
     (comment 1 "ESP32-S3 WROOM (WIFI/BTLE)")
-    (comment 2 "USB to Serial Connector")
-    (comment 3 "Lipo Charger / 14500 Battery")
-    (comment 4 "5 Input Buttons")
+    (comment 2 "USB to Serial Connector / MicroSD")
+    (comment 3 "Lipo Charger / 14500 Battery / Battery Guage")
+    (comment 4 "5 Input Buttons / 2x Rotary Dials / 2x SPI TFT / I2C Oled")
   )
 
   (lib_symbols

@@ -6,14 +6,14 @@
 
   (paper "A4")
   (title_block
-    (title "Prospect_v3")
-    (date "2023-09-25")
-    (rev "v3a")
+    (title "Project_NeoRogue")
+    (date "2023-10-30")
+    (rev "v1")
     (company "BadgePirates")
     (comment 1 "ESP32-S3 WROOM (WIFI/BTLE)")
-    (comment 2 "USB to Serial Programming")
-    (comment 3 "Lipo Charger / 14500 Battery")
-    (comment 4 "5 Input Buttons")
+    (comment 2 "USB to Serial Programming / MicroSD")
+    (comment 3 "Lipo Charger / 14500 Battery / Battery Guage")
+    (comment 4 "5 Input Buttons / 2x Rotaty Dials / 2x SPI Oled, I2C Oled")
   )
 
   (layers

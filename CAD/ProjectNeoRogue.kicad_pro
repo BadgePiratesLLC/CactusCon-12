@@ -454,7 +454,10 @@
       "version": 3
     },
     "net_colors": null,
-    "netclass_assignments": null,
+    "netclass_assignments": {
+      "D+": "USB Data",
+      "D-": "USB Data"
+    },
     "netclass_patterns": []
   },
   "pcbnew": {

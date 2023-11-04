@@ -1442,7 +1442,6 @@
   (no_connect (at 86.36 44.45) (uuid 369ce12a-899a-4ef2-ba8d-de24f5fde1f3))
   (no_connect (at 50.8 109.22) (uuid 6e832c37-be05-497c-a7a2-5e4f769a1912))
   (no_connect (at 186.69 48.26) (uuid 9266de61-32df-4043-989f-1e25fa70e19d))
-  (no_connect (at 86.36 40.64) (uuid da022036-b188-4945-9e08-f9c64d24b34b))
   (no_connect (at 154.94 111.76) (uuid e0ed7e22-5cf2-4a41-bfaa-69950b0614c6))
   (no_connect (at 154.94 129.54) (uuid e218b62e-2c08-4384-9a3a-f87bc5db77cd))
   (no_connect (at 186.69 50.8) (uuid facbf46d-6ab8-4069-ba01-d424ae5192e6))
@@ -3630,7 +3629,7 @@
   (symbol (lib_id "Device:R_Small_US") (at 66.675 47.625 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid accaf922-8cd5-4dbb-8887-4ba5a83b9071)
-    (property "Reference" "R25" (at 68.4022 46.4566 0)
+    (property "Reference" "R28" (at 68.4022 46.4566 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "4.7k" (at 68.4022 48.768 0)
@@ -3650,7 +3649,7 @@
     (instances
       (project "ProjectNeoRogue"
         (path "/76a22395-5d2d-4f66-8191-432f65fdc4ac"
-          (reference "R25") (unit 1)
+          (reference "R28") (unit 1)
         )
       )
     )
@@ -3998,7 +3997,7 @@
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "10uF" (at 75.9968 39.243 0)
-      (effects (font (size 1.27 1.27)) (justify left))
+      (effects (font (size 1.27 1.27)) (justify left) hide)
     )
     (property "Footprint" "BadgePirates:C_0805_2012Metric" (at 73.66 38.1 0)
       (effects (font (size 1.27 1.27)) hide)

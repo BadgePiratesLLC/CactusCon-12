@@ -541,7 +541,7 @@
       "model_mode": 0,
       "workbook_filename": ""
     },
-    "page_layout_descr_file": "C:\\Users\\KevinBennett\\OneDrive - Tier 3 Tech\\Badges\\Project-NeoRogue\\ReferenceDocs\\BadgePiratesDrawingSheet_sch.kicad_wks",
+    "page_layout_descr_file": "${KIPRJMOD}\\..\\ReferenceDocs\\BadgePiratesDrawingSheet_sch.kicad_wks",
     "plot_directory": "",
     "spice_current_sheet_as_root": false,
     "spice_external_command": "spice \"%I\"",

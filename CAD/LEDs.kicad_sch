@@ -2,7 +2,7 @@
 
   (uuid 1aae15da-574e-489b-934d-fee7c2413f85)
 
-  (paper "A4")
+  (paper "USLetter")
 
   (lib_symbols
     (symbol "BadgePirates:LED_RGB_WS2812B" (pin_names (offset 0.254)) (in_bom yes) (on_board yes)

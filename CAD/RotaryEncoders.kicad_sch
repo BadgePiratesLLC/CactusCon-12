@@ -2,7 +2,7 @@
 
   (uuid ea1acf36-6b80-4241-8fb1-2bcc568b8a8c)
 
-  (paper "A4")
+  (paper "USLetter")
 
   (lib_symbols
     (symbol "BadgePirates:R_10k_1206" (pin_numbers hide) (pin_names (offset 0.254) hide) (in_bom yes) (on_board yes)

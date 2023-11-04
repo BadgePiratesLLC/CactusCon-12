@@ -3627,7 +3627,7 @@
   )
 
   (symbol (lib_id "Connector:Conn_01x06_Socket") (at 72.39 160.02 0) (unit 1)
-    (in_bom yes) (on_board yes) (dnp yes) (fields_autoplaced)
+    (in_bom no) (on_board yes) (dnp yes) (fields_autoplaced)
     (uuid 147cb828-df31-4398-918b-5a7c891d28c8)
     (property "Reference" "J3" (at 74.93 160.02 0)
       (effects (font (size 1.27 1.27)) (justify left))
@@ -3657,7 +3657,7 @@
   )
 
   (symbol (lib_id "Jumper:Jumper_2_Bridged") (at 222.25 83.82 0) (unit 1)
-    (in_bom no) (on_board yes) (dnp no) (fields_autoplaced)
+    (in_bom no) (on_board yes) (dnp yes) (fields_autoplaced)
     (uuid 15dccea5-ff74-4189-aeb4-96fb0f36eb6e)
     (property "Reference" "JP2" (at 222.25 78.74 0)
       (effects (font (size 1.27 1.27)))
@@ -3885,7 +3885,7 @@
   )
 
   (symbol (lib_id "Connector:Conn_01x01_Socket") (at 27.94 148.59 0) (unit 1)
-    (in_bom yes) (on_board yes) (dnp yes) (fields_autoplaced)
+    (in_bom no) (on_board yes) (dnp yes) (fields_autoplaced)
     (uuid 3f763ba5-3f66-498f-a18d-1b049b7cf14a)
     (property "Reference" "J10" (at 29.21 147.32 0)
       (effects (font (size 1.27 1.27)) (justify left))
@@ -4004,7 +4004,7 @@
   )
 
   (symbol (lib_id "Jumper:Jumper_2_Bridged") (at 251.46 83.185 0) (unit 1)
-    (in_bom no) (on_board yes) (dnp no) (fields_autoplaced)
+    (in_bom no) (on_board yes) (dnp yes) (fields_autoplaced)
     (uuid 4e7b52e0-4814-4c2f-98da-3f03b62166a2)
     (property "Reference" "JP3" (at 251.46 78.105 0)
       (effects (font (size 1.27 1.27)))
@@ -4625,7 +4625,7 @@
   )
 
   (symbol (lib_id "BadgePirates:Badgelife_sao_connector_v169bis") (at 237.49 107.95 90) (unit 1)
-    (in_bom yes) (on_board yes) (dnp yes)
+    (in_bom no) (on_board yes) (dnp yes)
     (uuid c327b34a-9bb5-4968-9a71-c3968c4b47cb)
     (property "Reference" "X1" (at 238.76 116.84 90)
       (effects (font (size 1.27 1.27)) (justify left))

@@ -1096,7 +1096,7 @@
     (property "Vendor1" "LCSC" (at 116.84 99.06 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Vendor_PN" "C7202955" (at 116.84 99.06 0)
+    (property "Vendor1_PN" "C7202955" (at 116.84 99.06 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Vendor1_URL" "https://www.lcsc.com/product-detail/span-style-background-color-ff0-ESD-span-Protection-Devices_TECH-PUBLIC-PESD2USB3UV-TR_C7202955.html" (at 116.84 99.06 0)

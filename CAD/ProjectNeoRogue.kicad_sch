@@ -2231,7 +2231,7 @@
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid daac10c7-86ec-417c-af00-04eaf915ac75)
   )
-  (text "Reset Button\n" (at 26.67 52.705 0)
+  (text "Reset Button\n" (at 15.24 52.705 0)
     (effects (font (size 2.0066 2.0066)) (justify left bottom))
     (uuid dd744c68-64f2-4e05-ac51-c6ab5694deeb)
   )
@@ -2937,7 +2937,7 @@
   (symbol (lib_id "BadgePirates:R_10k_1206") (at 38.1 39.37 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 00000000-0000-0000-0000-000061502717)
-    (property "Reference" "R_1" (at 39.8272 38.2016 0)
+    (property "Reference" "R1" (at 39.8272 38.2016 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "10k" (at 39.8272 40.513 0)
@@ -2969,7 +2969,7 @@
     (instances
       (project "ProjectNeoRogue"
         (path "/76a22395-5d2d-4f66-8191-432f65fdc4ac"
-          (reference "R_1") (unit 1)
+          (reference "R1") (unit 1)
         )
       )
     )
@@ -3003,7 +3003,7 @@
   (symbol (lib_id "Device:R_Small_US") (at 35.56 66.04 90) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 00000000-0000-0000-0000-000061525792)
-    (property "Reference" "R2" (at 34.3916 64.3128 0)
+    (property "Reference" "R4" (at 34.3916 64.3128 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "1k" (at 36.703 64.3128 0)
@@ -3035,7 +3035,7 @@
     (instances
       (project "ProjectNeoRogue"
         (path "/76a22395-5d2d-4f66-8191-432f65fdc4ac"
-          (reference "R2") (unit 1)
+          (reference "R4") (unit 1)
         )
       )
     )
@@ -3173,7 +3173,7 @@
   (symbol (lib_id "Switch:SW_Push") (at 29.21 41.91 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 00000000-0000-0000-0000-0000615b1b47)
-    (property "Reference" "SW_Push" (at 29.21 34.671 0)
+    (property "Reference" "SW_Push1" (at 29.21 34.671 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "Reset" (at 29.21 36.9824 0)
@@ -3205,7 +3205,7 @@
     (instances
       (project "ProjectNeoRogue"
         (path "/76a22395-5d2d-4f66-8191-432f65fdc4ac"
-          (reference "SW_Push") (unit 1)
+          (reference "SW_Push1") (unit 1)
         )
       )
     )
@@ -3314,7 +3314,7 @@
   (symbol (lib_id "BadgePirates:SW_Push") (at 39.37 21.59 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 00000000-0000-0000-0000-000061ceeaab)
-    (property "Reference" "SW_SPDT" (at 39.37 15.621 0)
+    (property "Reference" "SW_SPDT1" (at 39.37 15.621 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "Boot" (at 39.37 17.9324 0)
@@ -3355,7 +3355,7 @@
     (instances
       (project "ProjectNeoRogue"
         (path "/76a22395-5d2d-4f66-8191-432f65fdc4ac"
-          (reference "SW_SPDT") (unit 1)
+          (reference "SW_SPDT1") (unit 1)
         )
       )
     )
@@ -3771,13 +3771,13 @@
     (property "MFG" "SHOU HAN" (at 177.8 121.92 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property ",FG_PN" "TF PUSH" (at 177.8 121.92 0)
+    (property "MFG_PN" "TF PUSH" (at 177.8 121.92 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Supplier 1" "LCSC" (at 177.8 121.92 0)
+    (property "Vendor1" "LCSC" (at 177.8 121.92 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Supplier_PN 1" "C393941" (at 177.8 121.92 0)
+    (property "Vendor1_PN" "C393941" (at 177.8 121.92 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (pin "1" (uuid 9307a12b-4c7a-450a-aa4a-bb1e798f2107))

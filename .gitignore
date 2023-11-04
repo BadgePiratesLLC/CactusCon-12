@@ -29,3 +29,4 @@ fp-info-cache
 *.csv
 *.lck
 CAD/\#auto_saved_files\#
+DOCS/~$ESP32-S3_PinOut_v3.xlsx

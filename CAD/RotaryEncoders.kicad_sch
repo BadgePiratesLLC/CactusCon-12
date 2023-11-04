@@ -480,10 +480,10 @@
     (uuid e2b0226a-e23b-4b91-8d7f-45df98525c9d)
   )
 
-  (global_label "IO25" (shape input) (at 99.06 59.69 0) (fields_autoplaced)
+  (global_label "IO20" (shape input) (at 99.06 59.69 0) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify left))
     (uuid 06ae44d8-0755-4344-ad65-b4478912161c)
-    (property "Intersheetrefs" "${INTERSHEET_REFS}" (at 105.6659 59.69 0)
+    (property "Intersheetrefs" "${INTERSHEET_REFS}" (at 105.7453 59.69 0)
       (effects (font (size 1.27 1.27)) (justify left) hide)
     )
   )

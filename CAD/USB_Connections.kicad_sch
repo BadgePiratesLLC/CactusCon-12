@@ -1081,7 +1081,7 @@
     (property "Value" "PESD2USB3UV-TR" (at 123.19 100.965 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Footprint" "Package_TO_SOT_SMD:SOT-23" (at 122.555 100.33 0)
+    (property "Footprint" "BadgePirates:SOT-23" (at 122.555 100.33 0)
       (effects (font (size 1.27 1.27)) (justify left) hide)
     )
     (property "Datasheet" "https://assets.nexperia.com/documents/data-sheet/PESD2USB3UV-T.pdf" (at 120.015 95.885 0)

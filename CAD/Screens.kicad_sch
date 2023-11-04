@@ -711,7 +711,7 @@
   )
 
   (symbol (lib_id "Connector:Conn_01x08_Pin") (at 180.34 77.47 0) (unit 1)
-    (in_bom yes) (on_board yes) (dnp yes)
+    (in_bom no) (on_board yes) (dnp yes)
     (uuid 49b5a1f9-69ed-4ef2-b746-70e48ebfa42b)
     (property "Reference" "J9" (at 180.975 66.04 0)
       (effects (font (size 1.27 1.27)))

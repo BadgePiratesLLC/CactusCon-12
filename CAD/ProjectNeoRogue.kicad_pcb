@@ -8589,8 +8589,6 @@
     (stroke (width 0.1) (type solid)) (fill solid) (layer "F.Mask") (tstamp de0c5c43-d16e-4567-84d8-b175523571f6))
   (gr_circle (center 210.998335 74.02) (end 211.96 74.02)
     (stroke (width 0.1) (type solid)) (fill solid) (layer "F.Mask") (tstamp eca1df3e-ba08-4684-9f44-5562ddc75665))
-  (gr_circle (center 175.658604 76.561396) (end 187.688604 90.411396)
-    (stroke (width 0.1) (type default)) (fill none) (layer "Edge.Cuts") (tstamp 568c1ee5-3c19-4cf9-9163-f5316fd69679))
   (gr_line (start 218.16 45.77) (end 122.808604 45.861396)
     (stroke (width 0.1) (type default)) (layer "Edge.Cuts") (tstamp 5edf2144-3f44-417c-b0dd-b39ffb71e0d9))
   (gr_line (start 122.808604 45.861396) (end 122.87 159.5)

@@ -55,11 +55,7 @@
           "width": 0.0
         }
       ],
-      "drc_exclusions": [
-        "starved_thermal|134507104|63460000|19cabf9d-1bbd-4d3b-87f3-385c954190ce|c97feb82-1dac-40f5-bfea-6dbe4d8f0876|B.Cu",
-        "text_thickness|161544000|47752000|5257b5a7-19cc-4033-9993-89fea6cbc3a5|00000000-0000-0000-0000-000000000000",
-        "text_thickness|161544000|50292000|2e138e09-b592-46fc-9c66-ab27aaa49940|00000000-0000-0000-0000-000000000000"
-      ],
+      "drc_exclusions": [],
       "meta": {
         "filename": "board_design_settings.json",
         "version": 2

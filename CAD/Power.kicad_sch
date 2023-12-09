@@ -1229,10 +1229,10 @@
     (property "Vendor1_URL" "https://www.digikey.com/en/products/detail/keystone-electronics/53/2745544" (at 135.89 123.19 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 6abcd24c-0d90-4e03-94a8-1cf4fde9bc55))
-    (pin "2" (uuid 19c88cd9-b337-4898-aab0-9737070ae849))
-    (pin "1" (uuid 6abcd24c-0d90-4e03-94a8-1cf4fde9bc55))
-    (pin "2" (uuid 19c88cd9-b337-4898-aab0-9737070ae849))
+    (pin "1" (uuid 6abcd24c-0d90-4e03-94a8-1cf4fde9bc57))
+    (pin "2" (uuid 19c88cd9-b337-4898-aab0-9737070ae84b))
+    (pin "1" (uuid 6abcd24c-0d90-4e03-94a8-1cf4fde9bc57))
+    (pin "2" (uuid 19c88cd9-b337-4898-aab0-9737070ae84b))
     (instances
       (project "ProjectNeoRogue"
         (path "/76a22395-5d2d-4f66-8191-432f65fdc4ac"
@@ -1903,10 +1903,10 @@
     (property "Vendor1_URL" "https://www.digikey.com/en/products/detail/keystone-electronics/53/2745544" (at 120.65 123.19 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid b0805a08-f9e7-43e2-ba63-e65681918ebb))
-    (pin "2" (uuid 22120576-f11e-402d-90ef-6814e87dccb0))
-    (pin "1" (uuid b0805a08-f9e7-43e2-ba63-e65681918ebb))
-    (pin "2" (uuid 22120576-f11e-402d-90ef-6814e87dccb0))
+    (pin "1" (uuid b0805a08-f9e7-43e2-ba63-e65681918ebd))
+    (pin "2" (uuid 22120576-f11e-402d-90ef-6814e87dccb2))
+    (pin "1" (uuid b0805a08-f9e7-43e2-ba63-e65681918ebd))
+    (pin "2" (uuid 22120576-f11e-402d-90ef-6814e87dccb2))
     (instances
       (project "ProjectNeoRogue"
         (path "/76a22395-5d2d-4f66-8191-432f65fdc4ac"

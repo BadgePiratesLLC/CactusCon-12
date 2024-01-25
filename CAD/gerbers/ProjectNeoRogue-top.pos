@@ -1,0 +1,23 @@
+### Footprint positions - created on Sat Dec 23 04:20:29 2023 ###
+### Printed by KiCad version 7.0.1
+## Unit = mm, Angle = deg.
+## Side : top
+# Ref     Val                     Package                                                                    PosX       PosY       Rot  Side
+D1        WS2812B                 LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm                                     -52.7600    66.6500   90.0000  top
+D11       WS2812B                 LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm                                     -30.2300    62.8200   90.0000  top
+D12       WS2812B                 LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm                                     -42.6400    45.0500   90.0000  top
+Fid-4     Fiducial_0.5mm_Mask1mm  Fiducial_0.5mm_Mask1mm                                                 -41.9400    70.7900    0.0000  top
+Fid-5     Fiducial_0.5mm_Mask1mm  Fiducial_0.5mm_Mask1mm                                                 -25.1700    50.5500    0.0000  top
+Fid-6     Fiducial_0.5mm_Mask1mm  Fiducial_0.5mm_Mask1mm                                                 -55.6300    46.6300    0.0000  top
+G***      LOGO                    F.SilkS_Vee                                                            -52.6276    35.6801  -90.0000  top
+G***      LOGO                    F.SilkS_Main                                                           -51.3216    58.0763  -90.0000  top
+G***      LOGO                    F.Mask_NewTextShadow                                                    26.5000    55.0900  -90.0000  top
+G***      LOGO                    F.Cu_Traces                                                            -42.5597    56.7110  -90.0000  top
+G***      LOGO                    F.SilkS_NewLettersTop                                                   18.6200    51.7800  -90.0000  top
+G***      LOGO                    F.Mask_Vee                                                             -55.0009    78.3519  -90.0000  top
+G***      LOGO                    F.Cu_NewTextShadow                                                      19.1700    54.9000  -90.0000  top
+G***      LOGO                    F.Mask_Traces                                                          -42.6400    56.7400  -90.0000  top
+J7        RoundDisplay_SPI        PinSocket_1x07_P2.54mm_Vertical                                        -50.5000    31.1600   90.0000  top
+SW9       RotaryEncoder_Switch    RotaryEncoder_Alps_EC11E-Switch_Vertical_H20mm_CircularMountingHoles   -90.5200   108.4200    0.0000  top
+SW10      RotaryEncoder_Switch    RotaryEncoder_Alps_EC11E-Switch_Vertical_H20mm_CircularMountingHoles   -90.2700    10.2300    0.0000  top
+## End

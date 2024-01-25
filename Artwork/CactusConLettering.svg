@@ -25,13 +25,13 @@
      inkscape:document-units="mm"
      inkscape:zoom="6.4818462"
      inkscape:cx="161.06522"
-     inkscape:cy="300.76307"
+     inkscape:cy="300.76308"
      inkscape:window-width="1922"
      inkscape:window-height="1266"
      inkscape:window-x="991"
      inkscape:window-y="708"
      inkscape:window-maximized="0"
-     inkscape:current-layer="g3" />
+     inkscape:current-layer="g196" />
   <defs
      id="defs1">
     <clipPath
@@ -547,13 +547,13 @@
          id="path28402-7-7"
          d="m 0,0 v -2.44 h -3.172 v 1.437 c 0,0.434 -0.353,0.786 -0.814,0.786 h -4.392 v -3.741 c 0,-0.434 0.352,-0.76 0.813,-0.76 h 3.579 v -2.819 h -4.853 c -1.491,0 -2.712,1.165 -2.712,2.575 v 6.291 h 1.6 v 1.247 h 7.239 C -1.22,2.576 0,1.437 0,0"
          style="display:inline;fill:#000000 icc-color(sRGB-IEC61966-2, 0.1, 0, 0, 0);fill-opacity:1;fill-rule:nonzero;stroke:none"
-         transform="matrix(0.42686109,0,0,-0.67105742,25.265135,76.052575)"
+         transform="matrix(0.42686109,0,0,-0.53382312,25.265135,77.08691)"
          clip-path="url(#clipPath28403-7-7-6)" />
       <path
          id="path28402-7-7-6"
          d="m 0,0 v -2.44 h -3.172 v 1.437 c 0,0.434 -0.353,0.786 -0.814,0.786 h -4.392 v -3.741 c 0,-0.434 0.352,-0.76 0.813,-0.76 h 3.579 v -2.819 h -4.853 c -1.491,0 -2.712,1.165 -2.712,2.575 v 6.291 h 1.6 v 1.247 h 7.239 C -1.22,2.576 0,1.437 0,0"
          style="display:inline;fill:#000000 icc-color(sRGB-IEC61966-2, 0.1, 0, 0, 0);fill-opacity:1;fill-rule:nonzero;stroke:none"
-         transform="matrix(0.42686109,0,0,-0.67105742,55.767447,76.040991)"
+         transform="matrix(0.42686109,0,0,-0.52171421,55.767447,77.166591)"
          clip-path="url(#clipPath28403-7-7-6-8)" />
     </g>
   </g>

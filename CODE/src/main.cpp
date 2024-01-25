@@ -1,7 +1,6 @@
 #include <Arduino.h>
 #include <esp_wifi.h>
 #include <freertos/queue.h>
-#include <Adafruit_NeoPixel.h>
 
 #include "config.hpp"
 #include "ota.hpp"
@@ -10,16 +9,6 @@
 #include "teletrack.hpp"
 #include "ble.hpp"
 #include "wifi_management.hpp"
-
-// Define the pins for the LEDs
-#define LED_1       10
-#define LED_2       11
-#define LED_3       12
-#define LED_4       13
-#define LED_5       14
-#define LED_6       15
-#define LED_PIN     18  // Set to your specific pin
-#define NUM_LEDS    3   // Number of LEDs in your strip
 
 QueueHandle_t queue;
 
@@ -32,16 +21,11 @@ String badge_topic = "INGSOC/citizen/";
 String report_topic = "INGSOC/monitoring";
 String aws_id = "cc12-";
 
-Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUM_LEDS, LED_PIN, NEO_GRB + NEO_KHZ800);
 
 void setup() {
     //init_console();
     Serial.begin(115200);
     
-    // Initialize all pixels to 'off'
-    strip.begin();
-    strip.show();  
-
     // Lower the power consumption without much impact to performance/usability
     esp_wifi_set_ps(WIFI_PS_MIN_MODEM);
     setCpuFrequencyMhz(80);
@@ -103,38 +87,9 @@ void setup() {
         ESP.restart();
     }
     BLE::start_scanning();
-
-  // Set the additional LEDs as OUTPUT
-  pinMode(LED_1, OUTPUT);
-  pinMode(LED_2, OUTPUT);
-  pinMode(LED_3, OUTPUT);
-  pinMode(LED_4, OUTPUT);
-  pinMode(LED_5, OUTPUT);
-  pinMode(LED_6, OUTPUT);
-
 }
 
 void loop() {
-     // Set random colors for NeoPixel LEDs
-  for (int i = 0; i < NUM_LEDS; i++) {
-    int red = random(256);    // Generate random values for red, green, and blue
-    int green = random(256);
-    int blue = random(256);
-
-  strip.setPixelColor(i, strip.Color(red, green, blue));
-  }
-  strip.show();
-
-  // Blink the additional LEDs randomly
-  digitalWrite(LED_1, random(2)); // Randomly set LED_1 on/off
-  digitalWrite(LED_2, random(2)); // Randomly set LED_2 on/off
-  digitalWrite(LED_3, random(2)); // Randomly set LED_3 on/off
-  digitalWrite(LED_4, random(2)); // Randomly set LED_4 on/off
-  digitalWrite(LED_5, random(2)); // Randomly set LED_5 on/off
-  digitalWrite(LED_6, random(2)); // Randomly set LED_6 on/off
-
-  delay(500);  // Pause between patterns and TFT messages
-
     char buf[200];
 
     mqtt.loop();

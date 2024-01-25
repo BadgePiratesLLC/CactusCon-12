@@ -10,6 +10,7 @@
 const int NUM_NEOPIXELS = 3; 
 const int NEO_BRIGHTNESS = 25; // Set BRIGHTNESS to about 1/5 (max = 255)
 const int NEO_PIN = 18; 
+const int ledPins[] = {10, 11, 12, 13, 14, 15};
 const int UPLINK_LED = GPIO_NUM_12;
 const int LEFT_ENCODER_A = GPIO_NUM_4;
 const int LEFT_ENCODER_B = GPIO_NUM_5;

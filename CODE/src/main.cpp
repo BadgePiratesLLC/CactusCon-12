@@ -14,7 +14,6 @@ QueueHandle_t queue;
 
 const int ota_button_pin = GPIO_NUM_0; // Boot button
 const int center_button_pin = GPIO_NUM_36; // Center button
-    
 AWSMQTTClient mqtt = AWSMQTTClient();
 String device_id = WiFi.macAddress();
 String badge_topic = "INGSOC/citizen/";
@@ -22,10 +21,14 @@ String report_topic = "INGSOC/monitoring";
 String aws_id = "cc12-";
 
 
+#ifndef TEST_MODE
+#define TEST_MODE 0 // Default to regular mode if TEST_MODE is not defined
+#endif
+
 void setup() {
     //init_console();
     Serial.begin(115200);
-    
+
     // Lower the power consumption without much impact to performance/usability
     esp_wifi_set_ps(WIFI_PS_MIN_MODEM);
     setCpuFrequencyMhz(80);
@@ -64,39 +67,60 @@ void setup() {
     WifiManagement::connect();
     WifiManagement::get_network_info();
 
-    if (!AWSRegistration::device_credentials_exist()) { // Check if AWS IOT creds exist
-        printf("[Main] Registering device.\n");
-        bool success = AWSRegistration::register_new_device(device_id.c_str());
+    if (TEST_MODE) {
+    Serial.println("Test setup");
+    // Additional test-specific setup steps can go here
+  } else {
+    Serial.println("Regular setup");
+    // Additional regular setup steps can go here
 
-        if (!success) { 
-            printf("[Main] Reg failed. Restarting.\n");
-        } else {
-            printf("[Main] Reg success. Restarting.\n");
+    if (!AWSRegistration::device_credentials_exist())
+        { // Check if AWS IOT creds exist
+            printf("[Main] Registering device.\n");
+            bool success = AWSRegistration::register_new_device(device_id.c_str());
+
+             if (!success)
+            {
+                printf("[Main] Reg failed. Restarting.\n");
+            }
+            else
+            {
+                printf("[Main] Reg success. Restarting.\n");
+            }
+
+            delay(1000);
+            ESP.restart();
         }
 
-        delay(1000);
-        ESP.restart();
-    }
+        AWSDeviceCredentials aws_creds;
+        AWSRegistration::load_device_credentials(aws_creds);
 
-    AWSDeviceCredentials aws_creds;
-    AWSRegistration::load_device_credentials(aws_creds);
-
-    mqtt.setup(aws_config, aws_creds);
-    if (!mqtt.start()) {
-        delay(1000);
-        ESP.restart();
-    }
+        mqtt.setup(aws_config, aws_creds);
+        if (!mqtt.start())
+        {
+            delay(1000);
+            ESP.restart();
+        }
+      }
     BLE::start_scanning();
+
 }
 
 void loop() {
     char buf[200];
+
+if (TEST_MODE) {
+
+    // Additional test-specific setup steps can go here
+  } else {
+    Serial.println("Regular setup");
+    // Additional regular setup steps can go here
 
     mqtt.loop();
     if (BLE::check_scan_results(buf, 200)){
         Serial.println(buf);
         mqtt.publish((char *)report_topic.c_str(), buf);
     }
-
+  }
 
 }

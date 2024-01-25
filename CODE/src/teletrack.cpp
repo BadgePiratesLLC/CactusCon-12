@@ -5,7 +5,6 @@ TFT_eSPI tft = TFT_eSPI();
 #endif
 SPIFFS_ImageReader reader;
 RotaryEncoder TeleTrack::left_rotary_encoder(LEFT_ENCODER_A, LEFT_ENCODER_B, LEFT_ENCODER_SW);
-
 /**
  * @brief Initalizes pin modes for various indicators.
 */
@@ -27,22 +26,71 @@ void TeleTrack::setup() {
     tft.init();
     tft.setRotation(1);
     tft.fillScreen(TFT_BLACK);
-    tft.setCursor(0,0,4);
+    tft.setCursor(40,104,4);
     tft.setTextColor(TFT_WHITE);
-    tft.println ("Hello World!");
+    tft.println ("Cactus Con 12");
+    tft.setCursor(45,125,4);
+    tft.setTextColor(TFT_RED);
+    tft.println ("test code v0.1");
     //retcode = reader.drawBMP("/big_hacktar.bmp", tft, 0, 0);
     //https://forum.arduino.cc/t/st7789-draw-bmp-files-faster/685758/4
     #endif
 
     delay(1000);
     reader.printStatus(retcode);
+ 
+            FastLED.addLeds<WS2812B, NEO_PIN>(neo_rgb_leds, NUM_NEOPIXELS); // Only try to realize the truth... there is no pin
+            FastLED.setBrightness(100);
 
-    FastLED.addLeds<WS2812B, NEO_PIN>(neo_rgb_leds, NUM_NEOPIXELS); // Only try to realize the truth... there is no pin
-    FastLED.setBrightness(10);
-    TeleTrack::neo_rgb_leds[0] = CRGB::Black;
-    TeleTrack::neo_rgb_leds[1] = CRGB::Black;
-    TeleTrack::neo_rgb_leds[2] = CRGB::Black;
-    FastLED.show();
+            CRGB red = CRGB(255, 0, 0);
+            CRGB green = CRGB(0, 255, 0);
+            CRGB blue = CRGB(0, 0, 255);
+            CRGB purple = CRGB(128, 0, 128); // Purple color
+// ---------- ADDED BELOW by FG for Testing the LEDs if it is in Test Mode -----------
+        // Set LED colors in a pattern
+        if (TEST_MODE) {
+    Serial.println("Testing RGB LEDS");
+
+        for (int i = 0; i < NUM_NEOPIXELS; i++) {
+            neo_rgb_leds[i] = red;
+            FastLED.show();
+            delay(250);
+            neo_rgb_leds[i] = green;
+            FastLED.show();
+            delay(250);
+            neo_rgb_leds[i] = blue;
+            FastLED.show();
+            delay(250);
+            neo_rgb_leds[i] = purple;
+            FastLED.show();
+            delay(250);
+        }
+
+        // Clear the LEDs
+        for (int i = 0; i < NUM_NEOPIXELS; i++) {
+            neo_rgb_leds[i] = CRGB::Black; // Turn off the LED
+        }
+            FastLED.show();
+        Serial.println("Static LEDS");
+            // Testing the LEDs
+        for (int i = 0; i < 6; i++) {
+            pinMode(ledPins[i], OUTPUT); // Set LED pins as output
+        }
+        // Blink the 6 static LEDs on
+        for (int i = 0; i < 6; i++) {
+            digitalWrite(ledPins[i], HIGH); // Turn the LED on
+        }
+        delay(1000); 
+
+        // Turn off all LEDs
+        for (int i = 0; i < 6; i++) {
+            digitalWrite(ledPins[i], LOW); // Turn the LED off
+        }
+        delay(1000); 
+            
+    // Additional test-specific setup steps can go here
+  } else {
+  }
 }
 
 void TeleTrack::left_rotary_encoder_callback(long value) {

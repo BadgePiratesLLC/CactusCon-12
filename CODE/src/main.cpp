@@ -109,18 +109,18 @@ void setup() {
 void loop() {
     char buf[200];
 
-if (TEST_MODE) {
+    if (TEST_MODE) {
 
-    // Additional test-specific setup steps can go here
-  } else {
-    Serial.println("Regular setup");
-    // Additional regular setup steps can go here
+        // Additional test-specific setup steps can go here
+    } else {
+        Serial.println("Regular setup");
+        // Additional regular setup steps can go here
 
-    mqtt.loop();
-    if (BLE::check_scan_results(buf, 200)){
-        Serial.println(buf);
-        mqtt.publish((char *)report_topic.c_str(), buf);
+        mqtt.loop();
+        if (BLE::check_scan_results(buf, 200)){
+            Serial.println(buf);
+            mqtt.publish((char *)report_topic.c_str(), buf);
+        }
     }
-  }
 
 }

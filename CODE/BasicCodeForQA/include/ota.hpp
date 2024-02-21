@@ -4,14 +4,14 @@
 #include <HTTPClient.h>
 #include <ESP32httpUpdate.h>
 #include <WiFi.h>
-#include <Wire.h>
-//#include <Adafruit_SSD1306.h>
+#include <TFT_eSPI.h> 
 
 #include "config.hpp"
 
 class OTA{
     private:
-        static bool isWifiAvailable();
+        static TFT_eSPI tft;
+        static int isWifiAvailable();
 
         // Progess indicators
         static void indicate_start();

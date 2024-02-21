@@ -1,5 +1,4 @@
 #include "ota.hpp"
-#include <Adafruit_SSD1306.h>
 /*
  * BadgePirates OTA updater
  * Handles WiFi updates
@@ -8,70 +7,93 @@
 // The code here will change badge-to-badge
 #pragma region Indication Code
 
-// Progess indicators, should be LED/Screen only.
-Adafruit_SSD1306 display = Adafruit_SSD1306(128, 64, &Wire, -1);
+TFT_eSPI OTA::tft = TFT_eSPI();
 
 void OTA::indicate_start(){
-    Wire.begin(GPIO_NUM_6, GPIO_NUM_7);
-    display.begin(SSD1306_SWITCHCAPVCC, 0x3C);
-    display.clearDisplay();
-    display.setTextSize(1);
-    display.setTextColor(SSD1306_WHITE);
-    display.setCursor(0,0);
-    display.printf("OTA update requested.");
-    display.display();
+    char countdown[2];
+    tft.fillScreen(TFT_BLACK);
+    tft.setTextDatum(MC_DATUM); 
+    tft.drawString("STARTING", tft.width() / 2, (tft.height() / 2) - 40);
+    tft.drawString("UPDATE IN", tft.width() / 2, (tft.height() / 2));
+    delay(1000);
+
+    tft.setTextSize(6);
+    for (int i = 3; i > 0; i--) {
+        tft.fillScreen(TFT_BLACK);
+        sprintf(countdown, "%d", i);
+        tft.drawString(countdown, tft.width() / 2, (tft.height() / 2) - 40);
+        delay(1000);
+    }
+    tft.setTextSize(3);
 }
 
 void OTA::indicate_wifi_connected(){
-    display.setCursor(0,0);
-    display.printf("Wifi connected.");
-    display.display();
+    tft.fillScreen(TFT_BLACK);
+    tft.setTextDatum(MC_DATUM); 
+    tft.drawString("WIFI", tft.width() / 2, (tft.height() / 2) - 40 );
+    tft.drawString("CONNECTED", tft.width() / 2, (tft.height() / 2) );
+
 }
 
 void OTA::indicate_manifest_load(){
-    display.setCursor(2,0);
-    display.printf("Manifest loaded.");
-    display.display();
+    tft.fillScreen(TFT_BLACK);
+    tft.setTextDatum(MC_DATUM); 
+    tft.drawString("MANIFEST", tft.width() / 2, (tft.height() / 2) - 40);
+    tft.drawString("LOADED", tft.width() / 2, (tft.height() / 2));
+
 }
 
 void OTA::indicate_updating(){
-    display.setCursor(3,0);
-    display.printf("Downloading update");
-    display.display();
+    tft.fillScreen(TFT_BLACK);
+    tft.setTextDatum(MC_DATUM); 
+    tft.drawString("UPDATE IN", tft.width() / 2, (tft.height() / 2) - 40);
+    tft.drawString("PROGRESS", tft.width() / 2, (tft.height() / 2));
+    tft.setTextSize(2);
+    tft.drawString("DO NOT POWER OFF", tft.width() / 2, (tft.height() / 2) + 40);
+    tft.setTextSize(3);
 }
 
 // Error indicators
 void OTA::indicate_error_wifi_unavailable(){
-    display.setCursor(10,10);
-    display.printf("Wifi unavailable.");
-    display.display();
+    tft.fillScreen(TFT_BLACK);
+    tft.setTextDatum(MC_DATUM); 
+    tft.drawString("WIFI SSID", tft.width() / 2, (tft.height() / 2) - 40);
+    tft.drawString("NOT FOUND", tft.width() / 2, (tft.height() / 2));
 }
 
 void OTA::indicate_error_wifi_rejected(){
-    display.setCursor(20,20);
-    display.printf("Wifi failed.");
-    display.display();
+    tft.fillScreen(TFT_BLACK);
+    tft.setTextDatum(MC_DATUM); 
+    tft.drawString("WIFI FAILED", tft.width() / 2, (tft.height() / 2) - 40);
+    tft.drawString("TO CONNECT", tft.width() / 2, (tft.height() / 2));
 }
 
 void OTA::indicate_error_download(){
-    display.setCursor(4,0);
-    display.printf("Manifest loaded.");
-    display.display();
+    tft.fillScreen(TFT_BLACK);
+    tft.setTextDatum(MC_DATUM); 
+    tft.drawString("ERROR", tft.width() / 2, (tft.height() / 2) - 40);
+    tft.drawString("DOWNLOADING", tft.width() / 2, (tft.height() / 2));
 }
 
 void OTA::indicate_error_latest_version(){
-    display.setCursor(4,0);
-    display.printf("Already running latest version.");
-    display.display();
+    tft.fillScreen(TFT_BLACK);
+    tft.setTextDatum(MC_DATUM); 
+    tft.drawString("ALREADY", tft.width() / 2, (tft.height() / 2) - 80);
+    tft.drawString("RUNNING", tft.width() / 2, (tft.height() / 2) - 40);
+    tft.drawString("LATEST", tft.width() / 2, (tft.height() / 2));
 }
 #pragma endregion
 
 #pragma region OTA Code
 // Checks whether or not our wifi can be seen
-bool OTA::isWifiAvailable()
+int OTA::isWifiAvailable()
 {
     //FastLED.setBrightness(75);
     Serial.println("[OTA] WiFi Scan init.");
+    tft.fillScreen(TFT_BLACK);
+    tft.setTextDatum(MC_DATUM); 
+    tft.drawString("SCANNING", tft.width() / 2, (tft.height() / 2) - 40);
+    tft.drawString("WIFI", tft.width() / 2, (tft.height() / 2));
     
     WiFi.mode(WIFI_STA);
     WiFi.disconnect();
@@ -79,34 +101,40 @@ bool OTA::isWifiAvailable()
 
     int n = WiFi.scanNetworks();
 
-#ifdef DEBUG
     Serial.print("[OTA] ");
     Serial.print(n);
     Serial.println(" networks found");
-#endif
+
+    for (int i = 0; i < sizeof(OTA_WIFI_SSIDS)/sizeof(OTA_WIFI_SSIDS[0]); i ++) {
+        Serial.printf("[OTA] Attemping to find SSID %s\n", OTA_WIFI_SSIDS[i]);
+    }
 
     if (n == 0)
     {
-#ifdef DEBUG
         Serial.println("[OTA] found no wifi networks, please check board.");
-#endif
     }
     else
     {
         for (int k = 0; k < n; ++k)
         {
-            if (WiFi.SSID(k) == OTA_WIFI_SSID)
-            {
-                return true;
+            for (int m = 0; m < sizeof(OTA_WIFI_SSIDS)/sizeof(OTA_WIFI_SSIDS[0]); m++) {
+                if (WiFi.SSID(k) == OTA_WIFI_SSIDS[m]) {
+                    Serial.printf("[OTA] %s found, using password %s\n", OTA_WIFI_SSIDS[m], OTA_WIFI_PASSWORDS[m]);
+                    return m;
+                }
             }
         }
     }
 
-    return false;
+    return -1;
 }
 
 void OTA::checkOTASync()
 {
+    int wifi_creds;
+    tft.fillScreen(TFT_BLACK);
+    tft.setTextColor(TFT_WHITE);
+    tft.setTextSize(3);
 
     // Since this is a task, we don't get to use the memory of the OTA class.
     HTTPClient httpClient;
@@ -114,7 +142,8 @@ void OTA::checkOTASync()
     // Start
     indicate_start();
     // Check wifi
-    if (!isWifiAvailable())
+    wifi_creds = isWifiAvailable();
+    if (wifi_creds == -1)
     {
         indicate_error_wifi_unavailable();
         Serial.println("[OTA] Wifi wasn't found.");
@@ -124,7 +153,7 @@ void OTA::checkOTASync()
 
     // Connect wifi
     WiFi.persistent(false); // Don't auto-connect on boot
-    WiFi.begin(OTA_WIFI_SSID, OTA_WIFI_PASSWORD);
+    WiFi.begin(OTA_WIFI_SSIDS[wifi_creds], OTA_WIFI_PASSWORDS[wifi_creds]);
     Serial.print("[OTA] WiFi is connecting");
     for (int i = 0; i < 25 && WiFi.status() != WL_CONNECTED; i++)
     {

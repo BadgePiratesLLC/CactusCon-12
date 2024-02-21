@@ -1,126 +1,113 @@
 #include <Arduino.h>
 #include <esp_wifi.h>
-#include <freertos/queue.h>
+
+#include <TJpg_Decoder.h>
+#include <FastLED.h>
+#include <TFT_eSPI.h> 
 
 #include "config.hpp"
 #include "ota.hpp"
-#include "aws_registration.hpp"
-#include "aws_mqtt.hpp"
-#include "teletrack.hpp"
-#include "ble.hpp"
-#include "wifi_management.hpp"
-
-QueueHandle_t queue;
+#include "bp_logo.hpp"
 
 const int ota_button_pin = GPIO_NUM_0; // Boot button
-const int center_button_pin = GPIO_NUM_36; // Center button
-AWSMQTTClient mqtt = AWSMQTTClient();
-String device_id = WiFi.macAddress();
-String badge_topic = "INGSOC/citizen/";
-String report_topic = "INGSOC/monitoring";
-String aws_id = "cc12-";
+const int LED_PINS[] = {10, 11, 12, 13, 14, 15};
+const int NUM_NEOPIXELS = 3; 
+const int NEO_BRIGHTNESS = 25; // Set BRIGHTNESS to about 1/5 (max = 255)
+const int NEO_PIN = GPIO_NUM_18;
+CRGB NEO_RGB_LEDS[NUM_NEOPIXELS];
+TFT_eSPI tft = TFT_eSPI();
 
+int NEO_MATRIX[][3] = {{1, 0 ,0}, {0, 1, 0},{0, 0, 1}};
 
-#ifndef TEST_MODE
-#define TEST_MODE 0 // Default to regular mode if TEST_MODE is not defined
-#endif
+bool tft_output(int16_t x, int16_t y, uint16_t w, uint16_t h, uint16_t* bitmap)
+{
+   // Stop further decoding as image is running off bottom of screen
+  if ( y >= tft.height() ) return 0;
+
+  tft.pushImage(x, y, w, h, bitmap);
+
+  return 1;
+}
+
+void set_neo_backlight(const char * hexcolor, int activate_neos[NUM_NEOPIXELS]) {
+    int r, g, b, r_t;
+    sscanf(hexcolor, "%02x%02x%02x", &r, &g, &b);
+    r_t = r; r = g; g = r_t; // Swapping red and blue due to a pinning issue?
+    for (int i = 0; i < NUM_NEOPIXELS; i++){
+        if (activate_neos[i])
+            NEO_RGB_LEDS[i].setRGB(r, g, b);
+    }
+    FastLED.show();
+}
 
 void setup() {
-    //init_console();
     Serial.begin(115200);
+    pinMode(ota_button_pin, INPUT_PULLUP);
 
     // Lower the power consumption without much impact to performance/usability
     esp_wifi_set_ps(WIFI_PS_MIN_MODEM);
     setCpuFrequencyMhz(80);
-  
-    TeleTrack::setup();
-    BLE::setup();
 
-    // generate badge and topic IDs
-    device_id.replace(":", ""); // Because colons in a MAC string make it smell
-    aws_id.concat(device_id);
-    badge_topic.concat(aws_id);
-    
-    // set mqtt params
-    AWSMQTTConfiguration aws_config;
-    aws_config.device_id = device_id;
-    aws_config.aws_id = aws_id;
-    aws_config.badge_topic = badge_topic;
-
-    pinMode(ota_button_pin, INPUT_PULLUP);
-    pinMode(center_button_pin, INPUT_PULLUP);
-
-    delay(3000);
-    
     // Check for buttons held at boot
     if (!digitalRead(ota_button_pin)) { // If OTA update is requested, do this first.
-        printf("[Main] Starting OTA update\n");
+        Serial.println("[Main] Starting OTA update");
         OTA::checkOTASync();
     }
 
-    if (!digitalRead(center_button_pin)) { // Reset stored credentials
-        printf("[Main] Resetting stored credentials!\n");
-        AWSRegistration::clear_saved_credentials();
+    for (int i = 0; i < (sizeof(LED_PINS) / sizeof(LED_PINS[0])); i++) {
+        pinMode(LED_PINS[i], OUTPUT);
     }
 
-    WifiManagement::setup();
-    WifiManagement::connect();
-    WifiManagement::get_network_info();
+    FastLED.addLeds<WS2812B, NEO_PIN>(NEO_RGB_LEDS, NUM_NEOPIXELS); // Only try to realize the truth... there is no pin
+    FastLED.setBrightness(255);
+    NEO_RGB_LEDS[1].setRGB(0, 0, 0);
+    NEO_RGB_LEDS[0].setRGB(0, 0, 0);
+    NEO_RGB_LEDS[2].setRGB(0, 0, 0);
+    FastLED.show();
 
-    if (TEST_MODE) {
-    Serial.println("Test setup");
-    // Additional test-specific setup steps can go here
-  } else {
-    Serial.println("Regular setup");
-    // Additional regular setup steps can go here
+    tft.init();
+    tft.setSwapBytes(true);
+    tft.setRotation(1);
+    tft.fillScreen(TFT_BLACK);
+    TJpgDec.setJpgScale(1);
+    TJpgDec.setCallback(tft_output);
 
-    if (!AWSRegistration::device_credentials_exist())
-        { // Check if AWS IOT creds exist
-            printf("[Main] Registering device.\n");
-            bool success = AWSRegistration::register_new_device(device_id.c_str());
+    tft.startWrite();
+    TJpgDec.drawJpg(0, 0, BP_LOGO, sizeof(BP_LOGO));
+    tft.endWrite();
 
-             if (!success)
-            {
-                printf("[Main] Reg failed. Restarting.\n");
-            }
-            else
-            {
-                printf("[Main] Reg success. Restarting.\n");
-            }
+    for (int i = 0; i < 6; i++) {
+        digitalWrite(LED_PINS[i], 1);
+        delay(100);
+    }
 
-            delay(1000);
-            ESP.restart();
-        }
-
-        AWSDeviceCredentials aws_creds;
-        AWSRegistration::load_device_credentials(aws_creds);
-
-        mqtt.setup(aws_config, aws_creds);
-        if (!mqtt.start())
-        {
-            delay(1000);
-            ESP.restart();
-        }
-      }
-    BLE::start_scanning();
+    for (int i = 6; i > -1; i--) {
+        digitalWrite(LED_PINS[i], 0);
+        delay(100);
+    }
 
 }
 
 void loop() {
-    char buf[200];
 
-    if (TEST_MODE) {
-
-        // Additional test-specific setup steps can go here
-    } else {
-        Serial.println("Regular setup");
-        // Additional regular setup steps can go here
-
-        mqtt.loop();
-        if (BLE::check_scan_results(buf, 200)){
-            Serial.println(buf);
-            mqtt.publish((char *)report_topic.c_str(), buf);
-        }
+    for (int i = 0; i < sizeof(NEO_MATRIX)/sizeof(NEO_MATRIX[0]); i++) {
+        set_neo_backlight("FF0000", NEO_MATRIX[i]);
+        delay(100);
     }
 
+    for (int i = 0; i < sizeof(NEO_MATRIX)/sizeof(NEO_MATRIX[0]); i++) {
+        set_neo_backlight("00FF00", NEO_MATRIX[i]);
+        delay(100);
+    }
+
+    for (int i = 0; i < sizeof(NEO_MATRIX)/sizeof(NEO_MATRIX[0]); i++) {
+        set_neo_backlight("0000FF", NEO_MATRIX[i]);
+        delay(100);
+    }
+
+    // Check for OTA request
+    if (!digitalRead(ota_button_pin)) {
+        Serial.println("[Main] Starting OTA update");
+        OTA::checkOTASync();
+    }
 }

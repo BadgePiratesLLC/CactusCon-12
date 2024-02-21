@@ -452,7 +452,7 @@
     )
     (pin "1" (uuid 41a0cd98-f8b0-46f5-8419-a71d5a093106))
     (instances
-      (project "ProjectNeoRogue"
+      (project "CactusCon12"
         (path "/76a22395-5d2d-4f66-8191-432f65fdc4ac"
           (reference "#PWR027") (unit 1)
         )
@@ -486,7 +486,7 @@
     (pin "6" (uuid 5562e51d-0e37-4521-bfe5-4c2327c326e2))
     (pin "7" (uuid 0621b402-62d6-430a-b9ad-49072551db76))
     (instances
-      (project "ProjectNeoRogue"
+      (project "CactusCon12"
         (path "/76a22395-5d2d-4f66-8191-432f65fdc4ac/7bbc5ee4-a356-48de-a261-211ab35ec87b"
           (reference "J7") (unit 1)
         )
@@ -530,7 +530,7 @@
     (pin "1" (uuid 2df8bc44-7dac-4ae3-9dc5-dc79fa6bd392))
     (pin "2" (uuid 9adfc350-ee34-40b0-81c2-6d1bfb9118dc))
     (instances
-      (project "ProjectNeoRogue"
+      (project "CactusCon12"
         (path "/76a22395-5d2d-4f66-8191-432f65fdc4ac"
           (reference "R25") (unit 1)
         )
@@ -577,7 +577,7 @@
     (pin "1" (uuid 7dfdf627-469c-4caf-9e95-6dce82a39012))
     (pin "2" (uuid 7b22f049-2eef-4767-964d-86b9aa5633fb))
     (instances
-      (project "ProjectNeoRogue"
+      (project "CactusCon12"
         (path "/76a22395-5d2d-4f66-8191-432f65fdc4ac"
           (reference "R25") (unit 1)
         )
@@ -605,7 +605,7 @@
     )
     (pin "1" (uuid cd4b331b-cc03-4bed-bae1-836edd45052e))
     (instances
-      (project "ProjectNeoRogue"
+      (project "CactusCon12"
         (path "/76a22395-5d2d-4f66-8191-432f65fdc4ac/7bbc5ee4-a356-48de-a261-211ab35ec87b"
           (reference "#PWR065") (unit 1)
         )
@@ -630,7 +630,7 @@
     )
     (pin "1" (uuid 4af37334-317a-4161-9601-cf7a3bafacf6))
     (instances
-      (project "ProjectNeoRogue"
+      (project "CactusCon12"
         (path "/76a22395-5d2d-4f66-8191-432f65fdc4ac/7bbc5ee4-a356-48de-a261-211ab35ec87b"
           (reference "#PWR066") (unit 1)
         )
@@ -655,7 +655,7 @@
     )
     (pin "1" (uuid 5ef875f4-5f10-420d-8d45-b00d7f0f0249))
     (instances
-      (project "ProjectNeoRogue"
+      (project "CactusCon12"
         (path "/76a22395-5d2d-4f66-8191-432f65fdc4ac"
           (reference "#PWR027") (unit 1)
         )

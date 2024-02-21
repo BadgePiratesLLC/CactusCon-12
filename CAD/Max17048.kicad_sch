@@ -414,7 +414,7 @@
     (pin "8" (uuid 294a6e7e-4933-400c-bee9-d248d1fcba4b))
     (pin "9" (uuid 8d819f37-365e-4733-a67d-e9cd8d5117b5))
     (instances
-      (project "ProjectNeoRogue"
+      (project "CactusCon12"
         (path "/76a22395-5d2d-4f66-8191-432f65fdc4ac/9c384370-1ecc-475e-8475-82fb9bf02d4c/50cd2632-424e-4caa-986e-e3deda989559"
           (reference "U5") (unit 1)
         )
@@ -458,7 +458,7 @@
     (pin "1" (uuid f4c96519-8f97-4b73-92f4-147de3107f18))
     (pin "2" (uuid 06168d5e-c4c7-4ad7-afc2-5cb474befb0a))
     (instances
-      (project "ProjectNeoRogue"
+      (project "CactusCon12"
         (path "/76a22395-5d2d-4f66-8191-432f65fdc4ac"
           (reference "R13") (unit 1)
         )
@@ -505,7 +505,7 @@
     (pin "1" (uuid 0d5d553a-db12-4ece-b84b-8947a416c714))
     (pin "2" (uuid 54ec2123-7e96-44c3-a844-f737e5fdfb62))
     (instances
-      (project "ProjectNeoRogue"
+      (project "CactusCon12"
         (path "/76a22395-5d2d-4f66-8191-432f65fdc4ac"
           (reference "C3") (unit 1)
         )
@@ -533,7 +533,7 @@
     )
     (pin "1" (uuid eac16406-a846-491c-92ad-7068f272d632))
     (instances
-      (project "ProjectNeoRogue"
+      (project "CactusCon12"
         (path "/76a22395-5d2d-4f66-8191-432f65fdc4ac/9c384370-1ecc-475e-8475-82fb9bf02d4c/50cd2632-424e-4caa-986e-e3deda989559"
           (reference "#PWR024") (unit 1)
         )
